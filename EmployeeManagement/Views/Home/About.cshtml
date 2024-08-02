@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "About Author!";
+}
+<main aria-labelledby="title" class="container my-5">
+    <h2 id="title" class="text-center mb-4">
+        @ViewBag.Title
+    </h2>
+
+    <h3 class="text-center mb-4">
+        <a href="https://github.com/Ximandiv" target ="_blank" class="text-decoration-none">
+            @ViewBag.Message
+        </a>
+    </h3>
+
+    <div class="text-center">
+        <p>
+            Hi! I'm RainAngel, a C# .NET Developer with great passion toward learning,
+            I've been working on important applications as a solution to problems from the
+            FinTech world in a startup and have been in a team as a support developer for an important
+            multinational company.
+        </p>
+        <p>
+            Click my name above to check out my repositories
+        </p>
+        @Html.ActionLink("Back Home", "Index", "Home", null, new { @class = "btn btn-primary btn-md mx-2" })
+    </div>
+</main>

@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<main>
+    <section class="container mt-5" aria-labelledby="aspnetTitle">
+        <h1 id="title" class="text-center mb-4">Home</h1>
+        <p class="lead text-center mb-4">
+            MVC project to showcase a table of employees that you can interact with as if you were managing them.
+        </p>
+        <div class="d-flex justify-content-center">
+            @Html.ActionLink("Start", "Index", "Employee", null, new { @class = "btn btn-primary btn-md mx-2" })
+            @Html.ActionLink("About Me", "About", "Home", null, new { @class = "btn btn-primary btn-md mx-2" })
+        </div>
+    </section>
+</main>

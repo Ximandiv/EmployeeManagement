@@ -1,0 +1,65 @@
+﻿@model EmployeeManagement.Models.Employee
+
+@{
+    ViewBag.Title = "Adding";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Employee Submission Form</h2>
+
+
+<form id="employeeForm">
+    <!--Token to prevent XSRF and CSRF attacks-->
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <hr />
+        <div id="validationSummary" class="text-danger"></div>
+
+        <div class="form-group">
+            <label for="Name" class="control-label col-md-2">Name</label>
+            <div class="col-md-10">
+                <input type="text" id="Name" name="Name" class="form-control" />
+                <span class="text-danger" data-valmsg-for="Name"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Position" class="control-label col-md-2">Position</label>
+            <div class="col-md-10">
+                <input type="text" id="Position" name="Position" class="form-control" />
+                <span class="text-danger" data-valmsg-for="Position"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Office" class="control-label col-md-2">Office</label>
+            <div class="col-md-10">
+                <input type="text" id="Office" name="Office" class="form-control" />
+                <span class="text-danger" data-valmsg-for="Office"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Salary" class="control-label col-md-2">Salary</label>
+            <div class="col-md-10">
+                <input type="text" id="Salary" name="Salary" class="form-control" />
+                <span class="text-danger" data-valmsg-for="Salary"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/Employee/EmployeeCreation.js"></script>
+}

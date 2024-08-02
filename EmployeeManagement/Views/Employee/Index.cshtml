@@ -1,0 +1,23 @@
+﻿@model EmployeeManagement.Models.EmployeeListVM
+
+@{
+    ViewBag.Title = "Employees";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Employee Management</h2>
+<span id="currentPage" data-page="@Model.CurrentPage"></span>
+
+<p>
+    @Html.ActionLink("Add", "Create", new { @class = "btn btn-primary" })
+</p>
+
+<!--Attaches container content to a partial view for dynamic updates-->
+<div id="employeeTableContainer">
+    @Html.Partial("_EmployeeTableView", Model)
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/Scripts/Employee/EmployeeListLoader.js"></script>
+}

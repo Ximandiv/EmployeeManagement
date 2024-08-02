@@ -1,0 +1,133 @@
+﻿@model EmployeeManagement.Models.Employee
+
+@{
+    ViewBag.Title = "Edition Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Employee Edition Form</h2>
+<hr />
+
+<!--Container with 2 components side to side for new and old values-->
+<div class="form-container d-flex">
+    <form id="employeeForm" class="form-section">
+        <!--Token to prevent XSRF and CSRF attacks-->
+        @Html.AntiForgeryToken()
+        <input type="text" id="Id" name="Id" class="form-control" value="@Model.Id" hidden />
+        <div class="form-horizontal">
+            <div id="validationSummary" class="text-danger"></div>
+
+            <div class="form-group d-flex">
+                <label for="Name" class="control-label">New Name</label>
+                <div>
+                    <input type="text" id="Name" name="Name" class="form-control" value="@Model.Name" />
+                    <span class="text-danger" data-valmsg-for="Name"></span>
+                </div>
+            </div>
+
+            <div class="form-group d-flex">
+                <label for="Position" class="control-label">New Position</label>
+                <div>
+                    <input type="text" id="Position" name="Position" class="form-control" value="@Model.Position" />
+                    <span class="text-danger" data-valmsg-for="Position"></span>
+                </div>
+            </div>
+
+            <div class="form-group d-flex">
+                <label for="Office" class="control-label">New Office</label>
+                <div>
+                    <input type="text" id="Office" name="Office" class="form-control" value="@Model.Office" />
+                    <span class="text-danger" data-valmsg-for="Office"></span>
+                </div>
+            </div>
+
+            <div class="form-group d-flex">
+                <label for="Salary" class="control-label">New Salary</label>
+                <div>
+                    <input type="text" id="Salary" name="Salary" class="form-control" value="@Model.Salary" />
+                    <span class="text-danger" data-valmsg-for="Salary"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Update" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="current-values">
+        <div class="form-group d-flex">
+            <label for="CurrentName" class="control-label">Current Name</label>
+            <div>
+                <p class="form-control-static" id="CurrentName">@Model.Name</p>
+            </div>
+        </div>
+
+        <div class="form-group d-flex">
+            <label for="CurrentPosition" class="control-label">Current Position</label>
+            <div>
+                <p class="form-control-static" id="CurrentPosition">@Model.Position</p>
+            </div>
+        </div>
+
+        <div class="form-group d-flex">
+            <label for="CurrentOffice" class="control-label">Current Office</label>
+            <div>
+                <p class="form-control-static" id="CurrentOffice">@Model.Office</p>
+            </div>
+        </div>
+
+        <div class="form-group d-flex">
+            <label for="CurrentSalary" class="control-label">Current Salary</label>
+            <div>
+                <p class="form-control-static" id="CurrentSalary">@Model.Salary</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/Employee/EmployeeEdition.js"></script>
+}
+
+<style>
+    .form-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .form-section {
+        flex: 0 0 48%;
+        margin-right: 2%;
+    }
+
+    .current-values {
+        flex: 0 0 48%;
+        margin-left: 2%;
+    }
+
+    .form-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        flex: 0 0 30%;
+    }
+
+    .form-group div {
+        flex: 0 0 70%;
+    }
+
+    .form-horizontal .col-md-10 {
+        padding: 0;
+    }
+</style>
